@@ -1,0 +1,61 @@
+package com.example.matheus.appfrutas.adapters;
+
+import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.matheus.appfrutas.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by Matheus on 02/10/2018.
+ */
+
+public class FrutasAdapter extends RecyclerView.Adapter<FrutasAdapter.MyViewHolder>  {
+    private LayoutInflater layoutInflater;
+    private ArrayList<String> content;
+    private Context ctx;
+    public FrutasAdapter(Context ctx,ArrayList<String> content)
+    {
+        this.ctx = ctx;
+        this.content = content;
+
+
+    }
+    @Override
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    {
+        Log.i("LOG","onCreateViewHolder()");
+        return new MyViewHolder(LayoutInflater.from(ctx).inflate(R.layout.item_frutas,parent,false));
+    }
+
+    @Override
+    public void onBindViewHolder(FrutasAdapter.MyViewHolder holder, int position) {
+
+        holder.nome.setText(content.get(position));
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return content.size();
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder{
+        public TextView nome;
+        public View separador;
+
+        public MyViewHolder(View itemView){
+            super(itemView);
+            nome  = itemView.findViewById(R.id.nome_fruta);
+            separador = itemView.findViewById(R.id.separador);
+        }
+    }
+}
