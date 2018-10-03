@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.matheus.appfrutas.adapters.FrutasAdapter;
+import com.example.matheus.appfrutas.interfaces.RecyclerViewOnClickListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,7 +23,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActivityFrutas extends AppCompatActivity {
+public class ActivityFrutas extends AppCompatActivity implements RecyclerViewOnClickListener {
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private RequestQueue mQueue;
@@ -66,6 +67,7 @@ public class ActivityFrutas extends AppCompatActivity {
                      * em seguida o adapter é setado no recyclerView
                       */
                      FrutasAdapter adapter = new FrutasAdapter(ActivityFrutas.this,jsonArray);
+                     adapter.setRecyclerViewOnClickListener(ActivityFrutas.this);
                      recyclerView.setAdapter(adapter);
 
                 } catch (JSONException e) {
@@ -81,6 +83,14 @@ public class ActivityFrutas extends AppCompatActivity {
             }
         });
         mQueue.add(request);
+
+    }
+
+    @Override
+    public void OnClickListener(View view, int position) {
+
+        FrutasAdapter adapter = (FrutasAdapter) recyclerView.getAdapter();
+        adapter.ExibeFruta(view,position);
 
     }
 }
