@@ -14,6 +14,11 @@ public class ActivityPerfilFruta extends AppCompatActivity {
     private TextView nomeFruta;
     private TextView precoDolar;
     private TextView precoReal;
+    public native String hello();
+
+    static{
+        System.loadLibrary("convertepreco");
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,5 +42,8 @@ public class ActivityPerfilFruta extends AppCompatActivity {
                 .resize(300, 300)
                 .centerCrop()
                 .into(imagemFruta);
+
+
+        precoReal.setText(hello());
     }
 }
