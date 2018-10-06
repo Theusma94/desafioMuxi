@@ -87,10 +87,10 @@ public class ActivityFrutas extends AppCompatActivity implements RecyclerViewOnC
     }
 
     @Override
-    public void OnClickListener(View view, int position) {
+    public void onClickListener(View view, int position) {
 
         FrutasAdapter adapter = (FrutasAdapter) recyclerView.getAdapter();
-        adapter.ExibeFruta(view,position);
+        adapter.exibeFruta(view,position);
 
     }
 }

@@ -63,7 +63,7 @@ public class FrutasAdapter extends RecyclerView.Adapter<FrutasAdapter.MyViewHold
         return jsonfruits.length();
     }
 
-    public void ExibeFruta(View v,int position) {
+    public void exibeFruta(View v,int position) {
         try {
             JSONObject fruits = jsonfruits.getJSONObject(position);
             String nomeFruta = fruits.getString("name");
@@ -107,7 +107,7 @@ public class FrutasAdapter extends RecyclerView.Adapter<FrutasAdapter.MyViewHold
         public void onClick(View v) {
             if(recyclerViewOnClickListener!=null)
             {
-                recyclerViewOnClickListener.OnClickListener(v,getAdapterPosition());
+                recyclerViewOnClickListener.onClickListener(v,getAdapterPosition());
             }
         }
     }

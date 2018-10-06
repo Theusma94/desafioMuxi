@@ -9,5 +9,5 @@ import android.view.View;
 public interface RecyclerViewOnClickListener {
 
     // Método que será implementado para o clique no recyclerview
-    public void OnClickListener(View view, int position);
+    public void onClickListener(View view, int position);
 }
