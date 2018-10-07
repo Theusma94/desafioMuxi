@@ -1,9 +1,11 @@
 package com.example.matheus.appfrutas;
 
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
@@ -28,12 +30,15 @@ public class ActivityFrutas extends AppCompatActivity implements RecyclerViewOnC
     private LinearLayoutManager layoutManager;
     private RequestQueue mQueue;
     private JSONArray jsonArray = null;
+    private Toolbar toolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frutas);
+
+
         // Cria uma nova requisição utilizando o framework Volley
         mQueue = Volley.newRequestQueue(this);
 
@@ -44,6 +49,17 @@ public class ActivityFrutas extends AppCompatActivity implements RecyclerViewOnC
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
 
+        //Configurando o toolbar
+        toolbar = findViewById(R.id.toolbarListaFruta);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitle("Desafio Muxi");
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         consomeJson();
 
@@ -82,6 +98,7 @@ public class ActivityFrutas extends AppCompatActivity implements RecyclerViewOnC
                 error.printStackTrace();
             }
         });
+        // adiciona a requisição a fila
         mQueue.add(request);
 
     }
@@ -93,4 +110,11 @@ public class ActivityFrutas extends AppCompatActivity implements RecyclerViewOnC
         adapter.exibeFruta(view,position);
 
     }
+
+   /* @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.
+    }*/
 }

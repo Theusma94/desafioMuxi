@@ -11,4 +11,14 @@
         android:layout_height="match_parent"
         android:minHeight="14dp"
         android:scrollbars="vertical" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarListaFruta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:elevation="4dp"
+        />
 </RelativeLayout>

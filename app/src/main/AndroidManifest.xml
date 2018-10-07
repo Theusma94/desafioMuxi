@@ -19,8 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityFrutas" />
-        <activity android:name=".ActivityPerfilFruta"></activity>
+        <activity android:name=".ActivityFrutas"
+            android:configChanges="orientation|screenSize"/>
+        <activity android:name=".ActivityPerfilFruta"
+            android:configChanges="orientation|screenSize"/>
     </application>
 
 </manifest>
