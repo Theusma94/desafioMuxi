@@ -6,17 +6,22 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/nome_fruta"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="18dp"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:backgroundTint="@android:color/background_dark"
+        android:fontFamily="@font/roboto"
+        android:gravity="left|center"
+        android:text="Teste"
+        android:textSize="16dp" />
     <View
         android:id="@+id/separador"
         android:layout_width="match_parent"
-        android:layout_height="1.5dp"
+        android:layout_height="0dp"
         android:layout_below="@+id/nome_fruta"
         android:background="#000000"
         >

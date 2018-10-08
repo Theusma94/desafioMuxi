@@ -12,45 +12,67 @@
     android:layout_height="match_parent"
     tools:context="com.example.matheus.appfrutas.ActivityPerfilFruta">
 
-    <ImageView
-        android:id="@+id/imagemItemFruta"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context="com.example.matheus.appfrutas.ActivityPerfilFruta">
 
-        android:layout_marginTop="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher" />
+        <ImageView
+            android:id="@+id/imagemItemFruta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_launcher" />
 
-    <TextView
-        android:id="@+id/nomeItemFruta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/nomeItemFruta"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="212dp"
+            android:background="@drawable/text_field"
+            android:fontFamily="@font/roboto"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="16dp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/precoDolar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="264dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="$ 00,00"
-        tools:layout_editor_absoluteX="0dp" />
+        <TextView
+            android:id="@+id/precoDolar"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
 
-    <TextView
-        android:id="@+id/precoReal"
-        android:layout_width="match_parent"
-        android:layout_height="19dp"
-        android:layout_marginTop="296dp"
-        android:text="R$ 00,00"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+            android:layout_marginTop="280dp"
+            android:background="@drawable/text_field"
+            android:gravity="left|center"
+            android:paddingLeft="12dp"
+            android:text="$ 00,00"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/precoReal"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="344dp"
+            android:background="@drawable/text_field"
+            android:fontFamily="@font/roboto"
+            android:gravity="left|center"
+            android:paddingLeft="12dp"
+            android:text="R$ 00,00"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarPerfilFruta"
         android:layout_width="match_parent"

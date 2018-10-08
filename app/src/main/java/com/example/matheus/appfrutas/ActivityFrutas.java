@@ -53,7 +53,6 @@ public class ActivityFrutas extends AppCompatActivity implements RecyclerViewOnC
         toolbar = findViewById(R.id.toolbarListaFruta);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setTitle("Desafio Muxi");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

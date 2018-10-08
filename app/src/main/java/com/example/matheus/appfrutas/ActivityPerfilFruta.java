@@ -46,7 +46,6 @@ public class ActivityPerfilFruta extends AppCompatActivity implements NativeCalc
         toolbar = findViewById(R.id.toolbarPerfilFruta);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setTitle(nomeFruta.getText().toString());
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,9 +88,18 @@ public class ActivityPerfilFruta extends AppCompatActivity implements NativeCalc
         // Arredonda a String recebida da Classe NativeCalc
         // para duas casas decimais
         BigDecimal bigDecimal = new BigDecimal(precoreal);
+        //Seta o numero de casas decimais em duas e arredonda a segunda casa decimal com +1 caso a terceira casa for >=5
         BigDecimal bigDecimal1 = bigDecimal.setScale(2, BigDecimal.ROUND_HALF_UP);
         precoReal.setText("R$"+ String.valueOf(bigDecimal1.doubleValue()));
     }
 
+    // Método com finalidades de teste
+    // Similar ao devolvePrecoConvertido porem retornando a string
+    public String devolvePrecoConvertidoteste(String precoreal) {
+        BigDecimal bigDecimal = new BigDecimal(precoreal);
+        BigDecimal bigDecimal1 = bigDecimal.setScale(2, BigDecimal.ROUND_HALF_UP);
+        return String.valueOf(bigDecimal1.doubleValue());
+
+    }
 
 }
