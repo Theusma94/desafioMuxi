@@ -1,8 +1,14 @@
 package com.example.matheus.appfrutas.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -63,28 +69,7 @@ public class FrutasAdapter extends RecyclerView.Adapter<FrutasAdapter.MyViewHold
         return jsonfruits.length();
     }
 
-    public void exibeFruta(View v,int position) {
-        try {
-            JSONObject fruits = jsonfruits.getJSONObject(position);
-            String nomeFruta = fruits.getString("name");
-            String imagemFruta = fruits.getString("image");
-            String precoDolarFruta = fruits.getString("price");
 
-            Intent intent = new Intent(v.getContext(),ActivityPerfilFruta.class);
-            Bundle bundle= new Bundle();
-            bundle.putString("nome",nomeFruta);
-            bundle.putString("imagem",imagemFruta);
-            bundle.putString("precodolar",precoDolarFruta);
-
-            intent.putExtras(bundle);
-            ctx.startActivity(intent);
-
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     public void setRecyclerViewOnClickListener(RecyclerViewOnClickListener r)
     {
@@ -93,13 +78,12 @@ public class FrutasAdapter extends RecyclerView.Adapter<FrutasAdapter.MyViewHold
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView nome;
-        public View separador;
+        public final TextView nome;
 
         public MyViewHolder(View itemView){
             super(itemView);
             nome  = itemView.findViewById(R.id.nome_fruta);
-            separador = itemView.findViewById(R.id.separador);
+
             itemView.setOnClickListener(this);
         }
 

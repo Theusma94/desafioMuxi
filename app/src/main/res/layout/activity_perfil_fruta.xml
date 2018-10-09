@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
+
         tools:context="com.example.matheus.appfrutas.ActivityPerfilFruta">
 
         <ImageView
@@ -31,23 +32,31 @@
 
         <TextView
             android:id="@+id/nomeItemFruta"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="212dp"
-            android:background="@drawable/text_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="220dp"
             android:fontFamily="@font/roboto"
             android:text="TextView"
-            android:textAlignment="center"
-            android:textSize="16dp"
             android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:transitionName="nome_fruta_transaction"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.066" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/layoutPerfil">
         <TextView
             android:id="@+id/precoDolar"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-
+            android:visibility="gone"
             android:layout_marginTop="280dp"
             android:background="@drawable/text_field"
             android:gravity="left|center"
@@ -63,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="344dp"
+            android:visibility="gone"
             android:background="@drawable/text_field"
             android:fontFamily="@font/roboto"
             android:gravity="left|center"
@@ -72,6 +82,7 @@
             android:textSize="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarPerfilFruta"
@@ -79,6 +90,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
+        app:theme="@style/ToolbarColoredBackArrow"
         android:theme="?attr/actionBarTheme"
         android:elevation="4dp"
         app:layout_constraintStart_toStartOf="parent"

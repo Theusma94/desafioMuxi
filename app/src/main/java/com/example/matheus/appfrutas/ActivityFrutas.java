@@ -1,11 +1,19 @@
 package com.example.matheus.appfrutas;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.os.Build;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.transition.ChangeBounds;
 import android.util.Log;
 import android.view.View;
 
@@ -35,6 +43,13 @@ public class ActivityFrutas extends AppCompatActivity implements RecyclerViewOnC
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Transições
+        // Api minima deve ser 21 (Lollipop)
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+
+            getWindow().setSharedElementExitTransition(new ChangeBounds());
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frutas);
 
@@ -51,6 +66,7 @@ public class ActivityFrutas extends AppCompatActivity implements RecyclerViewOnC
 
         //Configurando o toolbar
         toolbar = findViewById(R.id.toolbarListaFruta);
+        toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -103,10 +119,39 @@ public class ActivityFrutas extends AppCompatActivity implements RecyclerViewOnC
     }
 
     @Override
-    public void onClickListener(View view, int position) {
+    public void onClickListener(View view, int position)
+    {
+        try {
+            JSONObject fruits = jsonArray.getJSONObject(position);
+            String nomeFruta = fruits.getString("name");
+            String imagemFruta = fruits.getString("image");
+            String precoDolarFruta = fruits.getString("price");
 
-        FrutasAdapter adapter = (FrutasAdapter) recyclerView.getAdapter();
-        adapter.exibeFruta(view,position);
+            Intent intent = new Intent(ActivityFrutas.this,ActivityPerfilFruta.class);
+
+            Bundle bundle= new Bundle();
+            bundle.putString("nome",nomeFruta);
+            bundle.putString("imagem",imagemFruta);
+            bundle.putString("precodolar",precoDolarFruta);
+
+            intent.putExtras(bundle);
+
+            //Transições
+            // Api minima deve ser 21 (Lollipop)
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                View nome = view.findViewById(R.id.nome_fruta);
+
+                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
+                        Pair.create(nome,"nome_fruta_transaction"));
+                startActivity(intent,optionsCompat.toBundle());
+            }
+            else {
+                startActivity(intent);
+            }
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 
