@@ -29,3 +29,5 @@ Para executar o teste verifique se está na janela `Project` -> `Java`-> Selecio
 ### Testes instrumentados
 Esses são os testes de interface, que navegam pela aplicação. O teste consiste em navegar desde a tela inicial até a tela de perfil da fruta. Ao final, é comparado se o texto exposto com o nome da fruta é realmente o correto. Para elaborar esse teste utilizou a funcionalidade `Record Espresso Test`. Observou-se que para um melhor desempenho do teste se fez necessário desativar animações do dispositivo nas opções de desenvolvedor. Para executar o teste verifique se está na janela `Project` -> `Java`-> Selecione o pacote correspondente a `(androidTest)`-> Clique com botão direito -> `Run`
 
+## Gerar APK
+Para gerar o apk vá em `Build`-> `Generate Signed APK`-> `Create new`-> Escolhe-se a pasta para o arquivo `.jks`e preenche os devidos campos -> `Ok`-> Marque o tipo de assinatura V1 (Jar Signature) V2 (Full APK Signature). O projeto contem um apk ja gerado localizado [aqui](https://github.com/Theusma94/desafioMuxi/blob/master/app/release/app-release.apk)
