@@ -37,6 +37,14 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
 
+/* Classe para execução de teste funcional, no próprio dispositivo.
+   O teste se baseia no seguinte fluxo:
+   -> Clicar no botao inicial
+   -> Clicar em um item da lista
+   -> Checar se a o nome passado é o mesmo que é exibido no perfil fruta
+   -> Clicar no botão de voltar do toolbar
+*
+ */
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {

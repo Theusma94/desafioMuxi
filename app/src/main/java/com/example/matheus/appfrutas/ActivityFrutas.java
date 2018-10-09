@@ -155,10 +155,5 @@ public class ActivityFrutas extends AppCompatActivity implements RecyclerViewOnC
 
     }
 
-   /* @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
 
-        outState.
-    }*/
 }

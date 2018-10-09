@@ -49,9 +49,12 @@ public class ActivityPerfilFruta extends AppCompatActivity implements NativeCalc
 
                 }
 
-
+                // Api minima 19
+                @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                 @Override
                 public void onTransitionEnd(Transition transition) {
+                    // Após a transição entre activities completa
+                    // é necessário iniciar a animação dos TextView do preço
                     Slide trans = new Slide();
                     trans.setDuration(700);
                     TransitionManager.beginDelayedTransition(mRoot,trans);
@@ -119,7 +122,7 @@ public class ActivityPerfilFruta extends AppCompatActivity implements NativeCalc
         // método para a checagem de onde o recurso (imagem) vem,
         // com o intuito de checar se o cache de imagens está sendo
         // feito corretamente
-        mPicasso.setIndicatorsEnabled(true);
+        //mPicasso.setIndicatorsEnabled(true);
 
         mPicasso.get()
                 .load(url)
@@ -161,6 +164,7 @@ public class ActivityPerfilFruta extends AppCompatActivity implements NativeCalc
 
     }
 
+    // Necessário para configurar a animação do textview no botao de voltar do próprio dispositivo
     @Override
     public void onBackPressed(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
